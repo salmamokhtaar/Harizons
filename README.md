@@ -1,4 +1,7 @@
-This is my first project developed in collaboration with a client who aimed to establish a new business focused on translation, editing, and subtitling services. Unfortunately, the client faced challenges and ultimately decided to discontinue the venture. Nonetheless, I completed the website as planned because I was committed to seeing the project through. I successfully published the site, showcasing my skills and dedication.
+This is my first project, created in collaboration with a customer who wanted to establish a new business focused on translation, editing, and subtitling. Unfortunately, the customer faced challenges and could not continue. Despite this, I decided to complete and publish the website as planned.
+
+I developed this project as a volunteer, without any financial compensation. My goal was to do my best, and I am proud of the outcome.
+
 
 ![img1](https://github.com/user-attachments/assets/daaf5009-bcc8-454b-8922-7663fd60b625)
 
