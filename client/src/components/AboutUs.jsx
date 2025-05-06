@@ -3,30 +3,47 @@ import img from '../assets/rr.png';
 
 const AboutUs = () => {
   return (
-    <section className="bg-gray-100 py-16">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="flex items-center">
-            <div className="flex-1">
-              <h2 className="text-3xl text-center font-bold mb-6">About Us</h2>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                Harizon is a professional translation and interpretation services provider, founded by Isse Hassan Heyle. With a strong background in English and literature, Harizon delivers accurate, high-quality language services to clients across a wide range of industries.
+    <section className="w-full bg-white py-16 px-2">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-12 md:gap-20">
+        {/* Left: Heading, intro, Vision, Mission */}
+        <div className="flex-1 flex flex-col justify-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-blue-700 mb-4">About Us</h2>
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
+            Harizon is a leading provider of translation and interpretation services, dedicated to bridging language barriers and fostering global understanding. Founded by Isse Hassan Heyle, our team is passionate about delivering precise, culturally-aware language solutions for clients worldwide.
+          </p>
+          <div className="flex flex-col gap-6">
+            {/* Vision */}
+            <div className="bg-blue-50 border-l-4 border-blue-700 p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-bold text-blue-700 mb-2">Vision</h3>
+              <p className="text-gray-700 text-base">
+                To be the most trusted partner for global communication, enabling seamless connections across cultures and languages.
               </p>
-              <button onClick={"/contacts"} className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg text-lg">
-                Learn More
-              </button>
+            </div>
+            {/* Mission */}
+            <div className="bg-blue-50 border-l-4 border-blue-700 p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-bold text-blue-700 mb-2">Mission</h3>
+              <p className="text-gray-700 text-base">
+                To empower individuals and organizations by providing accurate, reliable, and culturally-sensitive language services with integrity and excellence.
+              </p>
             </div>
           </div>
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-md">
-              <div className="absolute top-0 left-3 -ml-12 bg-blue-500 rounded-full w-16 h-16 z-0"></div>
-              <div className="absolute bottom-0 right-0 -mr-12 -mb-12 bg-black rounded-full w-16 h-16 z-0"></div>
-              <img
-                src={img}
-                alt="About Us"
-                className="relative z-10 rounded-lg w-full h-auto max-w-xl"
-              />
-            </div>
+        </div>
+        {/* Right: Image (top), Core Values (below image) */}
+        <div className="flex-1 flex flex-col items-center md:items-end gap-6">
+          <img
+            src={img}
+            alt="About Harizon"
+            className="w-full max-w-md h-auto   object-cover mb-4"
+          />
+          <div className="w-full max-w-md bg-blue-50 border-l-4 border-blue-700 p-6 rounded-lg shadow-sm">
+            <h3 className="text-xl font-bold text-blue-700 mb-2">Core Values</h3>
+            <ul className="list-disc list-inside text-gray-700 text-base space-y-1">
+              <li>Accuracy & Quality</li>
+              <li>Integrity</li>
+              <li>Respect for Diversity</li>
+              <li>Client-Centered Service</li>
+              <li>Continuous Improvement</li>
+            </ul>
           </div>
         </div>
       </div>

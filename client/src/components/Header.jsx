@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import img from '../assets/logos.png';
+import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
 
 function Header({ homeRef, aboutRef, servicesRef, projectsRef, contactRef }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
+  // Scroll to hero section when logo/name is clicked
+  const handleLogoClick = () => {
+    if (homeRef && homeRef.current) {
+      homeRef.current.scrollIntoView({ behavior: 'smooth' });
+      setActiveLink('Home');
+    }
+    setIsOpen(false);
   };
 
   const handleScroll = (ref, link) => {
@@ -18,132 +25,109 @@ function Header({ homeRef, aboutRef, servicesRef, projectsRef, contactRef }) {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.pageYOffset > 0);
-    };
-
+    const handleScroll = () => setIsSticky(window.pageYOffset > 50);
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header
-      className={`bg-white shadow-2xl fixed top-0 left-0 right-0 z-10 transition-all duration-300 ${
-        isSticky ? 'py-2' : 'py-4'
-      }`}
-    >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center">
-          <img src={img} alt="harizon" className="h-10 mr-3" />
-          <span className="text-blue-700 font-bold text-2xl">Harizon</span>
-        </Link>
-        <nav className="hidden md:flex space-x-8">
-          <button
-            onClick={() => handleScroll(homeRef, 'Home')}
-            className={`${
-              activeLink === 'Home' ? 'text-black' : 'text-blue-600'
-            } hover:text-black ${isSticky ? 'text-sm' : 'text-base'}`}
-          >
-            Home
-          </button>
-          <button
-            onClick={() => handleScroll(aboutRef, 'About')}
-            className={`${
-              activeLink === 'About' ? 'text-black' : 'text-blue-600'
-            } hover:text-black ${isSticky ? 'text-sm' : 'text-base'}`}
-          >
-            About
-          </button>
-          <button
-            onClick={() => handleScroll(projectsRef, 'Projects')}
-            className={`${
-              activeLink === 'Projects' ? 'text-black' : 'text-blue-600'
-            } hover:text-black ${isSticky ? 'text-sm' : 'text-base'}`}
-          >
-            Projects
-          </button>
-          <button
-            onClick={() => handleScroll(servicesRef, 'Services')}
-            className={`${
-              activeLink === 'Services' ? 'text-black' : 'text-blue-600'
-            } hover:text-black ${isSticky ? 'text-sm' : 'text-base'}`}
-          >
-            Services
-          </button>
-          <button
-            onClick={() => handleScroll(contactRef, 'Contact')}
-            className={`${
-              activeLink === 'Contact' ? 'text-black' : 'text-blue-600'
-            } hover:text-black ${isSticky ? 'text-sm' : 'text-base'}`}
-          >
-            Contact Us
-          </button>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isSticky ? 'bg-white shadow-lg' : 'bg-white/90'} backdrop-blur-md`}>
+      <div className="container mx-auto px-4 flex items-center justify-between h-16">
+        {/* Logo (clickable, scrolls to hero) */}
+        <button onClick={handleLogoClick} className="flex items-center space-x-2 bg-transparent border-none p-0 m-0 cursor-pointer">
+          <span className="font-bold text-2xl text-blue-700">Harizon</span>
+        </button>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex flex-1 justify-center space-x-8">
+          {[
+            { ref: homeRef, label: 'Home' },
+            { ref: aboutRef, label: 'About' },
+            { ref: projectsRef, label: 'Projects' },
+            { ref: servicesRef, label: 'Services' },
+            { ref: contactRef, label: 'Contact' }
+          ].map(({ ref, label }) => (
+            <button
+              key={label}
+              onClick={() => handleScroll(ref, label)}
+              className={`relative font-medium text-lg px-2 py-1 transition-all duration-200 rounded hover:bg-blue-50 ${
+                activeLink === label ? 'text-blue-700 font-semibold' : 'text-gray-700 hover:text-blue-700'
+              }`}
+            >
+              {label}
+              {activeLink === label && (
+                <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-700 rounded"></span>
+              )}
+            </button>
+          ))}
         </nav>
+
+        {/* Contact Us Button (Desktop) */}
         <a
           href="https://wa.me/252617157083?text=Hello%20Harizon%20Team!"
-          className={`hidden md:flex items-center text-blue-500 font-medium ${isSticky ? 'text-sm' : 'text-base'}`}
+          className="hidden lg:flex items-center space-x-2 px-5 py-2 rounded-full bg-blue-700 text-white font-semibold shadow hover:bg-blue-800 transition-all duration-200"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 mr-2"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.773-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-          </svg>
-          +252 617157083
+          <FaWhatsapp className="h-5 w-5" />
+          <span>Contact Us</span>
         </a>
-        <button className="md:hidden focus:outline-none" onClick={toggleMenu}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+
+        {/* Hamburger (Mobile) */}
+        <button
+          className="lg:hidden flex items-center justify-center p-2 rounded"
+          onClick={toggleMenu}
+          aria-label="Open menu"
+        >
+          <FaBars className="h-6 w-6 text-blue-700" />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <div className={`md:hidden ${isOpen ? 'block' : 'hidden'} bg-white shadow-md`}>
-        <ul className="flex flex-col space-y-2 p-4">
-          <li>
-            <button onClick={() => handleScroll(homeRef, 'Home')} className={`text-gray-600 hover:text-blue-500 ${activeLink === 'Home' ? 'text-red-600' : ''}`}>
-              Home
+      {/* Mobile Drawer */}
+      <div
+        className={`fixed inset-0 z-50 bg-white transition-transform duration-300 lg:hidden flex flex-col ${isOpen ? 'translate-x-0' : 'translate-x-full'} h-screen`}
+        style={{ top: 0 }}
+      >
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+          <span className="font-bold text-2xl text-blue-700">Harizon</span>
+          <button
+            className="p-2 rounded"
+            onClick={closeMenu}
+            aria-label="Close menu"
+          >
+            <FaTimes className="h-6 w-6 text-gray-700" />
+          </button>
+        </div>
+        <nav className="flex flex-col items-center justify-center flex-1 space-y-8 mt-8">
+          {[
+            { ref: homeRef, label: 'Home' },
+            { ref: aboutRef, label: 'About' },
+            { ref: projectsRef, label: 'Projects' },
+            { ref: servicesRef, label: 'Services' },
+            { ref: contactRef, label: 'Contact' }
+          ].map(({ ref, label }) => (
+            <button
+              key={label}
+              onClick={() => handleScroll(ref, label)}
+              className={`w-full text-center text-2xl font-medium py-3 rounded transition-colors duration-200 text-gray-800 hover:text-blue-700 ${
+                activeLink === label ? 'text-blue-700 font-semibold bg-blue-50' : ''
+              }`}
+            >
+              {label}
             </button>
-          </li>
-          <li>
-            <button onClick={() => handleScroll(aboutRef, 'About')} className={`text-gray-600 hover:text-blue-500 ${activeLink === 'About' ? 'text-red-600' : ''}`}>
-              About
-            </button>
-          </li>
-          <li>
-            <button onClick={() => handleScroll(servicesRef, 'Services')} className={`text-gray-600 hover:text-blue-500 ${activeLink === 'Services' ? 'text-red-600' : ''}`}>
-              Services
-            </button>
-          </li>
-          <li>
-            <button onClick={() => handleScroll(projectsRef, 'Projects')} className={`text-gray-600 hover:text-blue-500 ${activeLink === 'Projects' ? 'text-red-600' : ''}`}>
-              Projects
-            </button>
-          </li>
-          <li>
-            <button onClick={() => handleScroll(contactRef, 'Contact')} className={`text-gray-600 hover:text-blue-500 ${activeLink === 'Contact' ? 'text-red-600' : ''}`}>
-              Contact Us
-            </button>
-          </li>
-        </ul>
+          ))}
+        </nav>
+        <div className="flex flex-col items-center mb-8 px-6">
+          <a
+            href="https://wa.me/252617157083?text=Hello%20Harizon%20Team!"
+            className="w-full flex items-center justify-center space-x-2 px-6 py-4 bg-blue-700 text-white rounded-full font-semibold text-lg shadow hover:bg-blue-800 transition-all duration-200"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaWhatsapp className="h-5 w-5" />
+            <span>Contact Us</span>
+          </a>
+        </div>
       </div>
     </header>
   );
