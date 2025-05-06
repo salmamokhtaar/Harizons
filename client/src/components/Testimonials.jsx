@@ -8,19 +8,19 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: 'Hasiina Goosaar',
-      title: 'FullStack Developer at RecentIT',
+      title: 'FullStack Developer',
       text: 'Their translation services are exceptional! We have worked with them on multiple projects and have always been satisfied with the quality and speed of their work.',
       image: has, // Placeholder image URL
     },
     {
       name: 'Salma Mokhtaar',
-      title: 'Software Developer at RecetIT',
+      title: 'Software Developer ',
       text: 'Highly professional and reliable. The team understood our needs perfectly and delivered outstanding results.',
       image: g,
     },
     {
       name: 'Abdirahim Abdalla',
-      title: 'Graphic Designer at RecentIt',
+      title: 'Graphic Designer ',
       text: 'I was impressed with their attention to detail and ability to meet tight deadlines. I highly recommend their services!',
       image: man, // Placeholder image URL
     },

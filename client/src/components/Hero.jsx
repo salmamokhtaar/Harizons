@@ -4,9 +4,8 @@ import img from '../assets/wara.png';
 
 const actions = [
   'Translation',
-  'Transcription',
-  'Editing',
-  'Interpretation',
+  'Editing'
+  
 ];
 
 function Hero({ contactRef }) {

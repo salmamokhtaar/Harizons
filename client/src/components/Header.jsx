@@ -50,7 +50,7 @@ function Header({ homeRef, aboutRef, servicesRef, projectsRef, contactRef }) {
             <button
               key={label}
               onClick={() => handleScroll(ref, label)}
-              className={`relative font-medium text-lg px-2 py-1 transition-all duration-200 rounded hover:bg-blue-50 ${
+              className={`relative font-medium text-lg px-2 py-1 transition-all duration-200 rounded  ${
                 activeLink === label ? 'text-blue-700 font-semibold' : 'text-gray-700 hover:text-blue-700'
               }`}
             >
