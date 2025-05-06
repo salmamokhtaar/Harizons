@@ -37,10 +37,10 @@ function Hero({ contactRef }) {
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20 px-4">
         {/* Text Block */}
         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+          <h1 className="flex flex-wrap items-center justify-center md:justify-start text-2xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
             We provide{' '}
             <span
-              className={`inline-block min-w-[120px] md:min-w-[180px] text-blue-700 transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}
+              className={`inline-block md:min-w-[180px] text-blue-700 transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}
             >
               {actions[currentActionIndex]}
             </span>
