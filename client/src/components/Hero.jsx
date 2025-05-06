@@ -31,7 +31,7 @@ function Hero({ contactRef }) {
   };
 
   return (
-    <section className="relative bg-white min-h-[70vh] md:min-h-[75vh] flex items-center justify-center py-10 md:py-20 overflow-hidden">
+    <section className="relative bg-white min-h-[70vh] md:min-h-[75vh] flex items-center justify-center py-10 md:py-20 mt-16 md:mt-0 overflow-hidden">
       {/* Subtle background accent */}
       <div className="absolute top-0 left-0 w-40 h-40 bg-blue-50 rounded-full opacity-50 -z-10" style={{ filter: 'blur(32px)' }} />
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20 px-4">

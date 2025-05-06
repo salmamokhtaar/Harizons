@@ -6,17 +6,18 @@ const Projects = () => {
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-10 text-center text-gray-800">Our Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          
           {/* Card 1 */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:scale-105">
             <div className="relative">
-              <div className="absolute inset-0 bg-opacity-0 group-hover:bg-blue-500 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white font-bold text-2xl opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="absolute inset-0 bg-blue-500 flex items-center justify-center transition-all duration-300">
+                <span className="text-white font-bold text-2xl transition-all duration-300">
                   Completed
                 </span>
               </div>
               <div className="p-6 flex justify-center items-center h-40">
                 <svg
-                  className="w-16 h-16 text-gray-700 group-hover:text-white transition-colors duration-300"
+                  className="w-16 h-16 text-white transition-colors duration-300"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -33,17 +34,18 @@ const Projects = () => {
               <p className="text-gray-600 mt-2">We have successfully completed over 7 projects, delivering high-quality results to our clients.</p>
             </div>
           </div>
+
           {/* Card 2 */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:scale-105">
             <div className="relative">
-              <div className="absolute inset-0 bg-opacity-0 group-hover:bg-blue-500 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white font-bold text-2xl opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="absolute inset-0 bg-blue-500 flex items-center justify-center transition-all duration-300">
+                <span className="text-white font-bold text-2xl transition-all duration-300">
                   Clients
                 </span>
               </div>
               <div className="p-6 flex justify-center items-center h-40">
                 <svg
-                  className="w-16 h-16 text-gray-700 group-hover:text-white transition-colors duration-300"
+                  className="w-16 h-16 text-white transition-colors duration-300"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -60,17 +62,18 @@ const Projects = () => {
               <p className="text-gray-600 mt-2">We have served over 20 happy customers, ensuring their satisfaction with our services.</p>
             </div>
           </div>
+
           {/* Card 3 */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:scale-105">
             <div className="relative">
-              <div className="absolute inset-0 bg-opacity-0 group-hover:bg-blue-500 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white font-bold text-2xl opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="absolute inset-0 bg-blue-500 flex items-center justify-center transition-all duration-300">
+                <span className="text-white font-bold text-2xl transition-all duration-300">
                   Experience
                 </span>
               </div>
               <div className="p-6 flex justify-center items-center h-40">
                 <svg
-                  className="w-16 h-16 text-gray-700 group-hover:text-white transition-colors duration-300"
+                  className="w-16 h-16 text-white transition-colors duration-300"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -87,6 +90,7 @@ const Projects = () => {
               <p className="text-gray-600 mt-2">We have over 2 years of experience in the industry, providing top-notch services to our clients.</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
