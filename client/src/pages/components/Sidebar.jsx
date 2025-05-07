@@ -62,17 +62,17 @@ const Sidebar = () => {
                     {/* Menu Item - View */}
                     <Link to="/dashboard/view-customers" className="flex items-center py-3 px-4 hover:cursor-pointer rounded transition duration-200 text-blue-600 hover:bg-gray-100" onClick={closeSidebar}>
                         <FontAwesomeIcon icon={faBusinessTime} className="mr-3 text-2xl" />
-                        <span className="hidden md:inline">Customers</span>
+                        <span className="hidden md:inline">All Tasks</span>
                     </Link>
                     {/* Menu Item - Approved */}
                     <Link to="/dashboard/completed" className="flex items-center py-3 px-4 hover:cursor-pointer rounded transition duration-200 text-blue-600 hover:bg-gray-100" onClick={closeSidebar}>
                         <FontAwesomeIcon icon={faCheck} className="mr-3 text-2xl" />
-                        <span className="hidden md:inline">Completed</span>
+                        <span className="hidden md:inline">Completed Tasks</span>
                     </Link>
                     {/* Menu Item - Rejected */}
                     <Link to="/dashboard/pending" className="flex items-center py-3 px-4 hover:cursor-pointer rounded transition duration-200 text-blue-600 hover:bg-gray-100" onClick={closeSidebar}>
                         <FontAwesomeIcon icon={faCancel} className="mr-3 text-2xl" />
-                        <span className="hidden md:inline">Pending</span>
+                        <span className="hidden md:inline">Pending Tasks</span>
                     </Link>
                     {/* Menu Item - Manage Users */}
                     <Link to="/dashboard/users" className="flex items-center py-3 px-4 hover:cursor-pointer rounded transition duration-200 text-blue-600 hover:bg-gray-100" onClick={closeSidebar}>

@@ -21,7 +21,7 @@ const Dashboard = () => {
       <div className="flex flex-1">
         <Sidebar />
         <div className="flex-1 p-5 bg-gray-100 overflow-y-auto">
-          <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
+          <h1 className="text-2xl font-bold mb-4">Harizon Dashboard</h1>
 
           {/* Conditionally render cards */}
           {!hideCardsPaths.includes(location.pathname) && (

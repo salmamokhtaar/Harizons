@@ -70,7 +70,7 @@ function ViewCustomers() {
     return (
         <div className="p-3 bg-gray-100">
             <div className="flex justify-between items-center mb-4">
-                <h1 className="text-2xl font-bold">All Customers</h1>
+                <h1 className="text-2xl font-bold">All Tasks</h1>
             </div>
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border border-gray-300">
