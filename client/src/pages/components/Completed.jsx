@@ -10,7 +10,7 @@ function Completed() {
 
     useEffect(() => {
         // Fetch completed customer data from the API
-        axios.get('http://localhost:5000/api/contacts/completed')
+        axios.get('http://localhost:5000/api/contacts/status/completed')
             .then(response => {
                 setCompletedCustomers(response.data);
             })

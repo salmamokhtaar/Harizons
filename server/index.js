@@ -260,8 +260,7 @@ app.get('/api/users/:id', async (req, res) => {
   }
 });
 
-// Get All Completed Contacts Route
-app.get('/api/contacts/completed', async (req, res) => {
+app.get('/api/contacts/status/completed', async (req, res) => {
   try {
     const completedContacts = await Contact.find({ status: 'Completed' });
     res.json(completedContacts);
@@ -270,9 +269,8 @@ app.get('/api/contacts/completed', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch completed contacts', details: error });
   }
 });
-
 // Get All Pending Contacts Route
-app.get('/api/contacts/pending', async (req, res) => {
+app.get('/api/contacts/status/pending', async (req, res) => {
   try {
     const pendingContacts = await Contact.find({ status: 'Pending' });
     res.json(pendingContacts);
@@ -281,7 +279,6 @@ app.get('/api/contacts/pending', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch pending contacts', details: error });
   }
 });
-
 
 // Test Route
 app.get('/test', (req, res) => {
